@@ -1,2 +1,1 @@
-# ai-persona-system
-AI persona + knowledge management system
+﻿# AI Persona System

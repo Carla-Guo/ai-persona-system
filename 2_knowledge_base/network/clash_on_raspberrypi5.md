@@ -109,3 +109,66 @@
 * **路径陷阱：** 在 `systemd` 配置中必须使用 `/home/willowpi/clash` 绝对路径，不可使用 `~/`。
 * **GUI 报错：** 在 SSH 远程操作图形程序时，必须先 `export DISPLAY=:0` 否则会触发 `Missing X server` 报错。
 * **分流策略：** `no_proxy` 必须包含常用内网域名（如 feishu），否则会导致办公软件连接异常。
+
+
+
+既然你的新加坡节点已经全线打通，VS Code 内置面板也配置完成了，这绝对是值得记录的一个里程碑。
+
+为了方便你更新 GitHub 的知识库（Knowledge Base），我按照 **“功能模块化”** 的逻辑为你整理了这份 Markdown 文档。你可以直接复制到你的 `README.md` 或 `docs/` 目录下。
+
+---
+
+## 🛠️ 树莓派 Mihomo (Clash Meta) 进阶配置指南
+
+### 1. 目录结构规范
+为了确保服务运行稳定，建议统一使用以下路径管理配置文件：
+* **程序与主配置目录**: `/home/willowpi/clash`
+* **Web UI 静态文件**: `/home/willowpi/clash/ui`
+* **Systemd 服务脚本**: `/etc/systemd/system/mihomo.service`
+
+### 2. 外部控制面板 (External UI) 配置
+通过在树莓派本地部署 `MetacubexD` 面板，实现 VS Code 内部的一体化管理。
+
+#### A. 面板文件部署
+```bash
+cd /home/willowpi/clash
+mkdir -p ui && cd ui
+# 下载并解压 MetacubexD (注意文件夹名称大小写)
+wget https://github.com/MetaCubeX/MetacubexD/archive/gh-pages.zip
+unzip gh-pages.zip
+mv metacubexd-gh-pages/* .
+rm -rf metacubexd-gh-pages gh-pages.zip
+```
+
+#### B. config.yaml 核心参数
+在 `/home/willowpi/clash/config.yaml` 中添加以下内容：
+```yaml
+# 外部控制 API 端口
+external-controller: 0.0.0.0:9090
+# 面板访问密钥 (登录时使用)
+secret: '123456'
+# 静态资源路径 (相对于 -d 指定的工作目录)
+external-ui: ui
+```
+
+### 3. VS Code 集成方案
+无需切换浏览器，利用 VS Code 内置功能实时监控流量：
+1. **端口转发**: 在 VS Code 的 "PORTS" 标签页中确保 `9090` 端口已转发。
+2. **启动浏览器**: `Ctrl + Shift + P` -> `Simple Browser: Show`。
+3. **访问地址**: `http://127.0.0.1:9090/ui/`（注意末尾必须带 `/`）。
+
+### 4. 终端代理与验证
+
+#### 链路状态验证
+通过查询出口 IP 验证节点切换是否生效：
+```bash
+# 预期输出应包含 "country_name": "Singapore" 或目标节点所在地
+curl -I https://ipapi.co/json
+```
+
+---
+
+### 📝 维护笔记 (2026-03-20)
+* **故障排除**: 如果访问面板出现 404，优先检查 `systemctl status mihomo` 确认工作目录 `-d` 的指向是否与 `ui` 文件夹物理路径一致。
+* **权限说明**: 确保 `ui` 文件夹具有 `755` 权限，否则 Mihomo 无法读取静态资源。
+

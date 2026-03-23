@@ -95,7 +95,7 @@
    ```
 2. **终端连通性终极测试：**
    ```bash
-   curl -x http://127.0.0.1:7890 -I https://www.google.com
+   curl -I https://www.google.com
    ```
 3. **物理屏幕启动浏览器 (解决 $DISPLAY 报错)：**
    ```bash

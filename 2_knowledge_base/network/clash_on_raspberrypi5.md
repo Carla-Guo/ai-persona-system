@@ -110,12 +110,6 @@
 * **GUI 报错：** 在 SSH 远程操作图形程序时，必须先 `export DISPLAY=:0` 否则会触发 `Missing X server` 报错。
 * **分流策略：** `no_proxy` 必须包含常用内网域名（如 feishu），否则会导致办公软件连接异常。
 
-
-
-既然你的新加坡节点已经全线打通，VS Code 内置面板也配置完成了，这绝对是值得记录的一个里程碑。
-
-为了方便你更新 GitHub 的知识库（Knowledge Base），我按照 **“功能模块化”** 的逻辑为你整理了这份 Markdown 文档。你可以直接复制到你的 `README.md` 或 `docs/` 目录下。
-
 ---
 
 ## 🛠️ 树莓派 Mihomo (Clash Meta) 进阶配置指南

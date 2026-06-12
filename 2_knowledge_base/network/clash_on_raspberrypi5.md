@@ -41,11 +41,19 @@
    ./mihomo -d .
    ```
    * *现象：* 报错 `bind: permission denied`，原因是无法监听 53 端口。
-3. **赋予底层网络权限 (关键加固)：**
+3.**解除占用**
+   ```bash
+   sudo systemctl stop mihomo
+   pkill -9 mihomo
+   ```
+   确认没有任何mihomo
+   ```bash
+   ps aux | grep mihomo
+   ```
+4. **赋予底层网络权限 (关键加固)：**
    ```bash
    sudo setcap 'cap_net_bind_service=+ep' /home/willowpi/clash/mihomo
    ```
-
 ---
 
 ## 三、 系统服务化 (Systemd 自动化)
@@ -80,14 +88,6 @@
 4. **检查运行状态：**
    ```bash
    sudo systemctl status mihomo
-   ```
-   检查是否有多个mihomo在运行
-   ```bash
-   ps aux | grep mihomo
-   ```
-   手动把非系统的那份杀死
-   ```bash
-   kill -9 xxxx
    ```
 
 ---

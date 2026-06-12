@@ -81,6 +81,14 @@
    ```bash
    sudo systemctl status mihomo
    ```
+   检查是否有多个mihomo在运行
+   ```bash
+   ps aux | grep mihomo
+   ```
+   手动把非系统的那份杀死
+   ```bash
+   kill -9 xxxx
+   ```
 
 ---
 

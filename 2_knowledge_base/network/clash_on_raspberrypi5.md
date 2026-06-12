@@ -36,14 +36,15 @@
    cd ..
    ```
 7. **config.yaml 核心参数**
-   在 `/home/willowpi/clash/config.yaml` 中添加以下内容：
+
+   `/home/willowpi/clash/config.yaml` 定位到
    ```yaml
-   # 外部控制 API 端口
    external-controller: 0.0.0.0:9090
-   # 面板访问密钥 (登录时使用)
-   secret: '123456'
-   # 静态资源路径 (相对于 -d 指定的工作目录)
+   ```
+   在下方添加以下内容：
+   ```yaml
    external-ui: ui
+   secret: '123456'
    ```
 ---
 

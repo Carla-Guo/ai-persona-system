@@ -140,7 +140,10 @@
    1. **端口转发**: 在 VS Code 的 "PORTS" 标签页中确保 `9090` 端口已转发。
    2. **启动浏览器**: `Ctrl + Shift + P` -> `Simple Browser: Show`。
    3. **访问地址**: `http://127.0.0.1:9090/ui/`（注意末尾必须带 `/`）。
-
+   4. 若无法访问可尝试重启mihomo
+      ```bash
+      sudo systemctl restart mihomo
+      ```
 6. **终端代理与验证**
    通过查询出口 IP 验证节点切换是否生效：
    ```bash

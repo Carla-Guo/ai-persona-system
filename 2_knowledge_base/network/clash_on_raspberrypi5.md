@@ -35,6 +35,7 @@
    ```bash
    curl -L -o config.yaml "your url"
    ```
+   注意检查config文件有没有下载正确内容！
 2. **第一次手动测试 (前台运行)：**
    ```bash
    ./mihomo -d .

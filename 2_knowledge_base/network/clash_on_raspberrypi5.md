@@ -25,7 +25,26 @@
    ```bash
    ./mihomo -v
    ```
-
+6. **面板文件部署**
+   ```bash
+   mkdir -p ui && cd ui
+   # 下载并解压 MetacubexD (注意文件夹名称大小写)
+   wget https://github.com/MetaCubeX/MetacubexD/archive/gh-pages.zip
+   unzip gh-pages.zip
+   mv metacubexd-gh-pages/* .
+   rm -rf metacubexd-gh-pages gh-pages.zip
+   cd ..
+   ```
+7. **config.yaml 核心参数**
+   在 `/home/willowpi/clash/config.yaml` 中添加以下内容：
+   ```yaml
+   # 外部控制 API 端口
+   external-controller: 0.0.0.0:9090
+   # 面板访问密钥 (登录时使用)
+   secret: '123456'
+   # 静态资源路径 (相对于 -d 指定的工作目录)
+   external-ui: ui
+   ```
 ---
 
 ## 二、 配置文件与初步测试
@@ -102,72 +121,44 @@
    echo 'export no_proxy="localhost,127.0.0.1,localaddress,.local,feishu.cn,qq.com"' >> ~/.bashrc
    source ~/.bashrc
    ```
-2. **终端连通性终极测试：**
+   确认端口是否被监听
+   ```bash
+   ss -lntp | grep -E "7890|7891|7892|7893|9090|1053"
+   ```
+   
+3. **终端连通性终极测试：**
    ```bash
    curl -I https://www.google.com
    ```
-3. **物理屏幕启动浏览器 (解决 $DISPLAY 报错)：**
+4. **物理屏幕启动浏览器 (解决 $DISPLAY 报错)：**
    ```bash
    export DISPLAY=:0
    chromium --proxy-server="http://127.0.0.1:7890" &
    ```
+5. **VS Code 集成方案**
+   无需切换浏览器，利用 VS Code 内置功能实时监控流量：
+   1. **端口转发**: 在 VS Code 的 "PORTS" 标签页中确保 `9090` 端口已转发。
+   2. **启动浏览器**: `Ctrl + Shift + P` -> `Simple Browser: Show`。
+   3. **访问地址**: `http://127.0.0.1:9090/ui/`（注意末尾必须带 `/`）。
 
+6. **终端代理与验证**
+   通过查询出口 IP 验证节点切换是否生效：
+   ```bash
+   # 预期输出应包含 "country_name": "Singapore" 或目标节点所在地
+   curl -I https://ipapi.co/json
+   ```
 ---
 
 ## 五、 经验总结 (Carla's Notes)
 * **路径陷阱：** 在 `systemd` 配置中必须使用 `/home/willowpi/clash` 绝对路径，不可使用 `~/`。
 * **GUI 报错：** 在 SSH 远程操作图形程序时，必须先 `export DISPLAY=:0` 否则会触发 `Missing X server` 报错。
 * **分流策略：** `no_proxy` 必须包含常用内网域名（如 feishu），否则会导致办公软件连接异常。
-
----
-
-## 🛠️ 树莓派 Mihomo (Clash Meta) 进阶配置指南
-
-### 1. 目录结构规范
 为了确保服务运行稳定，建议统一使用以下路径管理配置文件：
 * **程序与主配置目录**: `/home/willowpi/clash`
 * **Web UI 静态文件**: `/home/willowpi/clash/ui`
 * **Systemd 服务脚本**: `/etc/systemd/system/mihomo.service`
 
-### 2. 外部控制面板 (External UI) 配置
-通过在树莓派本地部署 `MetacubexD` 面板，实现 VS Code 内部的一体化管理。
 
-#### A. 面板文件部署
-```bash
-cd /home/willowpi/clash
-mkdir -p ui && cd ui
-# 下载并解压 MetacubexD (注意文件夹名称大小写)
-wget https://github.com/MetaCubeX/MetacubexD/archive/gh-pages.zip
-unzip gh-pages.zip
-mv metacubexd-gh-pages/* .
-rm -rf metacubexd-gh-pages gh-pages.zip
-```
-
-#### B. config.yaml 核心参数
-在 `/home/willowpi/clash/config.yaml` 中添加以下内容：
-```yaml
-# 外部控制 API 端口
-external-controller: 0.0.0.0:9090
-# 面板访问密钥 (登录时使用)
-secret: '123456'
-# 静态资源路径 (相对于 -d 指定的工作目录)
-external-ui: ui
-```
-
-### 3. VS Code 集成方案
-无需切换浏览器，利用 VS Code 内置功能实时监控流量：
-1. **端口转发**: 在 VS Code 的 "PORTS" 标签页中确保 `9090` 端口已转发。
-2. **启动浏览器**: `Ctrl + Shift + P` -> `Simple Browser: Show`。
-3. **访问地址**: `http://127.0.0.1:9090/ui/`（注意末尾必须带 `/`）。
-
-### 4. 终端代理与验证
-
-#### 链路状态验证
-通过查询出口 IP 验证节点切换是否生效：
-```bash
-# 预期输出应包含 "country_name": "Singapore" 或目标节点所在地
-curl -I https://ipapi.co/json
-```
 
 ---
 

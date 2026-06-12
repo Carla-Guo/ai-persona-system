@@ -35,17 +35,6 @@
    rm -rf metacubexd-gh-pages gh-pages.zip
    cd ..
    ```
-7. **config.yaml 核心参数**
-
-   `/home/willowpi/clash/config.yaml` 定位到
-   ```yaml
-   external-controller: 0.0.0.0:9090
-   ```
-   在下方添加以下内容：
-   ```yaml
-   external-ui: ui
-   secret: '123456'
-   ```
 ---
 
 ## 二、 配置文件与初步测试
@@ -56,7 +45,18 @@
    curl -L -o config.yaml "your url"
    ```
    注意检查config文件有没有下载正确内容！
-2. **第一次手动测试 (前台运行)：**
+2. **config.yaml 核心参数**
+
+   `/home/willowpi/clash/config.yaml` 定位到
+   ```yaml
+   external-controller: 0.0.0.0:9090
+   ```
+   在下方添加以下内容：
+   ```yaml
+   external-ui: ui
+   secret: '123456'
+   ```
+3. **第一次手动测试 (前台运行)：**
    ```bash
    ./mihomo -d .
    ```

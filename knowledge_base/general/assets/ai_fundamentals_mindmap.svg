@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">AI 基础知识思维导图</title>
+  <desc id="desc">横竖比 3:4 的 AI 基础知识思维导图，梳理术语和个人常见问题之间的关系。</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfaf7; }
+      .center { fill: #233142; }
+      .node { fill: #ffffff; stroke-width: 2.5; }
+      .line { fill: none; stroke: #9aa6b2; stroke-width: 3; stroke-linecap: round; }
+      .title { font: 700 34px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #ffffff; }
+      .h { font: 700 24px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; }
+      .t { font: 500 19px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #263238; }
+      .small { font: 500 17px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="900" height="1200"/>
+
+  <rect x="260" y="515" width="380" height="150" rx="26" class="center"/>
+  <text x="450" y="575" text-anchor="middle" class="title">AI 基础知识</text>
+  <text x="450" y="620" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', 'Noto Sans SC', Arial, sans-serif; fill: #ffffff;">先会用，再理解原理</text>
+
+  <path class="line" d="M340 520 C250 420, 190 330, 150 225"/>
+  <path class="line" d="M560 520 C650 420, 710 330, 750 225"/>
+  <path class="line" d="M260 590 C170 590, 120 590, 75 590"/>
+  <path class="line" d="M640 590 C730 590, 780 590, 825 590"/>
+  <path class="line" d="M340 665 C250 780, 190 880, 150 1000"/>
+  <path class="line" d="M560 665 C650 780, 710 880, 750 1000"/>
+
+  <rect x="55" y="80" width="310" height="250" rx="18" class="node" stroke="#2f80ed"/>
+  <text x="210" y="122" text-anchor="middle" class="h" fill="#2f80ed">1. 模型基础</text>
+  <text x="85" y="165" class="t">AI：总称</text>
+  <text x="85" y="198" class="t">ML / DL：学习方法</text>
+  <text x="85" y="231" class="t">Training：上课训练</text>
+  <text x="85" y="264" class="t">Fine-tuning：专项补课</text>
+  <text x="85" y="297" class="t">Inference：现场答题</text>
+
+  <rect x="535" y="80" width="310" height="250" rx="18" class="node" stroke="#27ae60"/>
+  <text x="690" y="122" text-anchor="middle" class="h" fill="#27ae60">2. 使用入口</text>
+  <text x="565" y="165" class="t">网页版：手动点餐</text>
+  <text x="565" y="198" class="t">订阅版：会员额度</text>
+  <text x="565" y="231" class="t">API：程序调用</text>
+  <text x="565" y="264" class="t">API Key：门禁钥匙</text>
+  <text x="565" y="297" class="t">Quota：额度</text>
+  <text x="565" y="323" class="t">Rate Limit：限速</text>
+
+  <rect x="45" y="455" width="315" height="300" rx="18" class="node" stroke="#f2994a"/>
+  <text x="202" y="497" text-anchor="middle" class="h" fill="#f2994a">3. 对话控制</text>
+  <text x="75" y="540" class="t">Prompt：任务单</text>
+  <text x="75" y="573" class="t">Context：桌上资料</text>
+  <text x="75" y="606" class="t">Context Window：桌子大小</text>
+  <text x="75" y="639" class="t">Token：按页计费</text>
+  <text x="75" y="672" class="t">Temperature：创意旋钮</text>
+  <text x="75" y="705" class="t">Memory：记偏好</text>
+  <text x="75" y="731" class="t">追问：打磨草稿</text>
+
+  <rect x="540" y="455" width="315" height="300" rx="18" class="node" stroke="#9b51e0"/>
+  <text x="697" y="497" text-anchor="middle" class="h" fill="#9b51e0">4. 能力扩展</text>
+  <text x="570" y="540" class="t">Multimodal：文字外还能看听</text>
+  <text x="570" y="573" class="t">RAG：先查资料再回答</text>
+  <text x="570" y="606" class="t">Embedding：资料地图坐标</text>
+  <text x="570" y="639" class="t">Agent：会行动的助理</text>
+  <text x="570" y="672" class="t">Workflow：固定菜谱</text>
+  <text x="570" y="705" class="t">Local Model：在家自己做饭</text>
+
+  <rect x="55" y="870" width="340" height="245" rx="18" class="node" stroke="#eb5757"/>
+  <text x="225" y="912" text-anchor="middle" class="h" fill="#eb5757">5. 风险与验证</text>
+  <text x="85" y="955" class="t">Hallucination：自信胡说</text>
+  <text x="85" y="988" class="t">Verification：收货验货</text>
+  <text x="85" y="1021" class="t">隐私：先脱敏再发送</text>
+  <text x="85" y="1054" class="t">上传文件：可能看漏看错</text>
+  <text x="85" y="1087" class="t">代码 / 总结：必须测试和回看</text>
+
+  <rect x="505" y="870" width="340" height="245" rx="18" class="node" stroke="#00a7a7"/>
+  <text x="675" y="912" text-anchor="middle" class="h" fill="#00a7a7">6. 常见问题</text>
+  <text x="535" y="955" class="t">不能用：额度、限速、排队</text>
+  <text x="535" y="988" class="t">会胡说：上下文不足</text>
+  <text x="535" y="1021" class="t">成本高：输入输出太长</text>
+  <text x="535" y="1054" class="t">代码不稳：环境没说清</text>
+  <text x="535" y="1087" class="t">本地模型：隐私换维护成本</text>
+</svg>

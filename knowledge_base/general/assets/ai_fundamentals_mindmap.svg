@@ -1,81 +1,218 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
-  <title id="title">AI 基础知识思维导图</title>
-  <desc id="desc">横竖比 3:4 的 AI 基础知识思维导图，梳理术语和个人常见问题之间的关系。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1650" viewBox="0 0 2200 1650" role="img" aria-labelledby="title desc">
+  <title id="title">AI 基础知识关系图</title>
+  <desc id="desc">用连接关系说明 AI、机器学习、深度学习、大语言模型、模型、API、应用程序、产品入口、一次请求流程以及常见问题之间的关系。</desc>
   <defs>
     <style>
-      .bg { fill: #fbfaf7; }
-      .center { fill: #233142; }
-      .node { fill: #ffffff; stroke-width: 2.5; }
-      .line { fill: none; stroke: #9aa6b2; stroke-width: 3; stroke-linecap: round; }
-      .title { font: 700 34px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #ffffff; }
-      .h { font: 700 24px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; }
-      .t { font: 500 19px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #263238; }
-      .small { font: 500 17px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #4b5563; }
+      .bg { fill: #f7f8fb; }
+      .panel { fill: #ffffff; stroke: #d9dee8; stroke-width: 2.4; }
+      .title { font: 800 48px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #111827; }
+      .panel-title { font: 700 34px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #1f2a37; }
+      .note { font: 500 20px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #5b6472; }
+      .section { font: 700 20px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #394150; }
+      .node { fill: #ffffff; stroke-width: 2.8; }
+      .node-text { font: 700 25px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #1f2a37; }
+      .node-sub { font: 500 18px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #5b6472; }
+      .small { font: 600 19px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #394150; }
+      .tiny { font: 500 17px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #667085; }
+      .line { fill: none; stroke: #9aa6b2; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+      .line-soft { fill: none; stroke: #b7c0ce; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 8 8; }
+      .pill { fill: #eef2f7; stroke: #d9dee8; stroke-width: 1.6; }
+      .blue { stroke: #2f80ed; }
+      .green { stroke: #12b76a; }
+      .purple { stroke: #7f56d9; }
+      .orange { stroke: #f79009; }
+      .red { stroke: #f04438; }
+      .blue-fill { fill: #eef4ff; stroke: #2f80ed; }
+      .green-fill { fill: #ecfdf3; stroke: #12b76a; }
+      .purple-fill { fill: #f4f0ff; stroke: #7f56d9; }
+      .orange-fill { fill: #fff7ed; stroke: #f79009; }
+      .red-fill { fill: #fef3f2; stroke: #f04438; }
     </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#9aa6b2"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2f80ed"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#12b76a"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#f79009"/>
+    </marker>
   </defs>
 
-  <rect class="bg" width="900" height="1200"/>
+  <rect class="bg" width="2200" height="1650"/>
+  <text x="1100" y="72" text-anchor="middle" class="title">AI 基础知识关系图</text>
+  <text x="1100" y="112" text-anchor="middle" class="note">读法：先看 AI 能力谱系，再看模型如何通过 API 变成应用，最后看一次请求里各术语所在的位置。</text>
 
-  <rect x="260" y="515" width="380" height="150" rx="26" class="center"/>
-  <text x="450" y="575" text-anchor="middle" class="title">AI 基础知识</text>
-  <text x="450" y="620" text-anchor="middle" style="font: 600 18px 'Microsoft YaHei', 'Noto Sans SC', Arial, sans-serif; fill: #ffffff;">先会用，再理解原理</text>
+  <!-- 1. AI family tree -->
+  <rect x="70" y="155" width="2060" height="430" rx="24" class="panel"/>
+  <text x="120" y="208" class="panel-title">1. AI 是大伞：不同能力分支从这里长出来</text>
+  <text x="120" y="246" class="note">ML、DL、LLM 是层层包含关系；CV、语音、机器人是 AI 的其他重要能力方向。</text>
 
-  <path class="line" d="M340 520 C250 420, 190 330, 150 225"/>
-  <path class="line" d="M560 520 C650 420, 710 330, 750 225"/>
-  <path class="line" d="M260 590 C170 590, 120 590, 75 590"/>
-  <path class="line" d="M640 590 C730 590, 780 590, 825 590"/>
-  <path class="line" d="M340 665 C250 780, 190 880, 150 1000"/>
-  <path class="line" d="M560 665 C650 780, 710 880, 750 1000"/>
+  <rect x="120" y="310" width="190" height="90" rx="15" class="node blue"/>
+  <text x="215" y="348" text-anchor="middle" class="node-text">AI</text>
+  <text x="215" y="380" text-anchor="middle" class="node-sub">人工智能总称</text>
 
-  <rect x="55" y="80" width="310" height="250" rx="18" class="node" stroke="#2f80ed"/>
-  <text x="210" y="122" text-anchor="middle" class="h" fill="#2f80ed">1. 模型基础</text>
-  <text x="85" y="165" class="t">AI：总称</text>
-  <text x="85" y="198" class="t">ML / DL：学习方法</text>
-  <text x="85" y="231" class="t">Training：上课训练</text>
-  <text x="85" y="264" class="t">Fine-tuning：专项补课</text>
-  <text x="85" y="297" class="t">Inference：现场答题</text>
+  <path d="M310 355 H430" class="line" marker-end="url(#arrow)"/>
+  <rect x="430" y="310" width="270" height="90" rx="15" class="node blue"/>
+  <text x="565" y="348" text-anchor="middle" class="node-text">Machine Learning</text>
+  <text x="565" y="380" text-anchor="middle" class="node-sub">机器学习：从数据学规律</text>
 
-  <rect x="535" y="80" width="310" height="250" rx="18" class="node" stroke="#27ae60"/>
-  <text x="690" y="122" text-anchor="middle" class="h" fill="#27ae60">2. 使用入口</text>
-  <text x="565" y="165" class="t">网页版：手动点餐</text>
-  <text x="565" y="198" class="t">订阅版：会员额度</text>
-  <text x="565" y="231" class="t">API：程序调用</text>
-  <text x="565" y="264" class="t">API Key：门禁钥匙</text>
-  <text x="565" y="297" class="t">Quota：额度</text>
-  <text x="565" y="323" class="t">Rate Limit：限速</text>
+  <path d="M700 355 H820" class="line" marker-end="url(#arrow)"/>
+  <rect x="820" y="310" width="250" height="90" rx="15" class="node blue"/>
+  <text x="945" y="348" text-anchor="middle" class="node-text">Deep Learning</text>
+  <text x="945" y="380" text-anchor="middle" class="node-sub">深度学习：多层神经网络</text>
 
-  <rect x="45" y="455" width="315" height="300" rx="18" class="node" stroke="#f2994a"/>
-  <text x="202" y="497" text-anchor="middle" class="h" fill="#f2994a">3. 对话控制</text>
-  <text x="75" y="540" class="t">Prompt：任务单</text>
-  <text x="75" y="573" class="t">Context：桌上资料</text>
-  <text x="75" y="606" class="t">Context Window：桌子大小</text>
-  <text x="75" y="639" class="t">Token：按页计费</text>
-  <text x="75" y="672" class="t">Temperature：创意旋钮</text>
-  <text x="75" y="705" class="t">Memory：记偏好</text>
-  <text x="75" y="731" class="t">追问：打磨草稿</text>
+  <path d="M1070 355 H1190" class="line" marker-end="url(#arrow)"/>
+  <rect x="1190" y="310" width="190" height="90" rx="15" class="node blue"/>
+  <text x="1285" y="348" text-anchor="middle" class="node-text">LLM</text>
+  <text x="1285" y="380" text-anchor="middle" class="node-sub">大语言模型</text>
 
-  <rect x="540" y="455" width="315" height="300" rx="18" class="node" stroke="#9b51e0"/>
-  <text x="697" y="497" text-anchor="middle" class="h" fill="#9b51e0">4. 能力扩展</text>
-  <text x="570" y="540" class="t">Multimodal：文字外还能看听</text>
-  <text x="570" y="573" class="t">RAG：先查资料再回答</text>
-  <text x="570" y="606" class="t">Embedding：资料地图坐标</text>
-  <text x="570" y="639" class="t">Agent：会行动的助理</text>
-  <text x="570" y="672" class="t">Workflow：固定菜谱</text>
-  <text x="570" y="705" class="t">Local Model：在家自己做饭</text>
+  <path d="M215 400 V480 H430" class="line" marker-end="url(#arrowGreen)"/>
+  <path d="M215 480 H670" class="line" marker-end="url(#arrowGreen)"/>
+  <path d="M215 480 H910" class="line" marker-end="url(#arrowGreen)"/>
 
-  <rect x="55" y="870" width="340" height="245" rx="18" class="node" stroke="#eb5757"/>
-  <text x="225" y="912" text-anchor="middle" class="h" fill="#eb5757">5. 风险与验证</text>
-  <text x="85" y="955" class="t">Hallucination：自信胡说</text>
-  <text x="85" y="988" class="t">Verification：收货验货</text>
-  <text x="85" y="1021" class="t">隐私：先脱敏再发送</text>
-  <text x="85" y="1054" class="t">上传文件：可能看漏看错</text>
-  <text x="85" y="1087" class="t">代码 / 总结：必须测试和回看</text>
+  <rect x="430" y="445" width="170" height="70" rx="14" class="node green"/>
+  <text x="515" y="475" text-anchor="middle" class="node-text">CV</text>
+  <text x="515" y="500" text-anchor="middle" class="node-sub">图像 / 视频理解</text>
 
-  <rect x="505" y="870" width="340" height="245" rx="18" class="node" stroke="#00a7a7"/>
-  <text x="675" y="912" text-anchor="middle" class="h" fill="#00a7a7">6. 常见问题</text>
-  <text x="535" y="955" class="t">不能用：额度、限速、排队</text>
-  <text x="535" y="988" class="t">会胡说：上下文不足</text>
-  <text x="535" y="1021" class="t">成本高：输入输出太长</text>
-  <text x="535" y="1054" class="t">代码不稳：环境没说清</text>
-  <text x="535" y="1087" class="t">本地模型：隐私换维护成本</text>
+  <rect x="670" y="445" width="180" height="70" rx="14" class="node green"/>
+  <text x="760" y="475" text-anchor="middle" class="node-text">Speech</text>
+  <text x="760" y="500" text-anchor="middle" class="node-sub">语音识别 / 合成</text>
+
+  <rect x="910" y="445" width="205" height="70" rx="14" class="node green"/>
+  <text x="1012" y="475" text-anchor="middle" class="node-text">Robotics</text>
+  <text x="1012" y="500" text-anchor="middle" class="node-sub">感知 + 决策 + 执行</text>
+
+  <path d="M1380 355 H1505" class="line" marker-end="url(#arrowBlue)"/>
+  <rect x="1505" y="285" width="360" height="155" rx="17" class="node blue"/>
+  <text x="1685" y="326" text-anchor="middle" class="node-text">常见 LLM / 产品线</text>
+  <text x="1545" y="370" class="small">ChatGPT / GPT、Claude、Gemini</text>
+  <text x="1545" y="405" class="small">Qwen、DeepSeek 等</text>
+
+  <rect x="1425" y="470" width="565" height="58" rx="17" class="pill"/>
+  <text x="1455" y="494" class="small">Training：训练阶段，模型从大量数据里学规律</text>
+  <text x="1455" y="520" class="small">Fine-tuning：在已有模型上继续训练，让它更适合某类任务</text>
+
+  <!-- 2. Model to app chain -->
+  <rect x="70" y="630" width="2060" height="540" rx="24" class="panel"/>
+  <text x="120" y="683" class="panel-title">2. 从模型到你看到的工具：中间隔着 API 和应用程序</text>
+  <text x="120" y="721" class="note">模型本身不是应用。应用通过 API 调用模型，再把结果包装成聊天、编辑器、知识库或本地工具。</text>
+
+  <text x="120" y="780" class="section">主链路</text>
+  <rect x="120" y="815" width="220" height="100" rx="17" class="node purple"/>
+  <text x="230" y="856" text-anchor="middle" class="node-text">模型</text>
+  <text x="230" y="888" text-anchor="middle" class="node-sub">GPT / Claude / Gemini</text>
+
+  <path d="M340 865 H475" class="line" marker-end="url(#arrow)"/>
+  <rect x="475" y="815" width="200" height="100" rx="17" class="node orange"/>
+  <text x="575" y="856" text-anchor="middle" class="node-text">API</text>
+  <text x="575" y="888" text-anchor="middle" class="node-sub">程序调用入口</text>
+
+  <path d="M675 865 H810" class="line" marker-end="url(#arrow)"/>
+  <rect x="810" y="815" width="230" height="100" rx="17" class="node green"/>
+  <text x="925" y="856" text-anchor="middle" class="node-text">应用程序</text>
+  <text x="925" y="888" text-anchor="middle" class="node-sub">业务逻辑 + 界面</text>
+
+  <path d="M1040 865 H1165" class="line" marker-end="url(#arrow)"/>
+  <rect x="1165" y="790" width="220" height="150" rx="17" class="node blue"/>
+  <text x="1275" y="830" text-anchor="middle" class="node-text">你看到的产品</text>
+  <text x="1215" y="872" class="tiny">ChatGPT</text>
+  <text x="1215" y="904" class="tiny">Cursor</text>
+  <text x="1215" y="936" class="tiny">Cherry Studio</text>
+
+  <path d="M1385 865 H1510" class="line" marker-end="url(#arrowBlue)"/>
+  <rect x="1510" y="790" width="500" height="150" rx="17" class="node blue"/>
+  <text x="1760" y="830" text-anchor="middle" class="node-text">更多应用形态</text>
+  <text x="1560" y="875" class="small">Open WebUI：本地或自部署聊天界面</text>
+  <text x="1560" y="912" class="small">Claude Desktop：桌面端产品入口</text>
+
+  <text x="120" y="982" class="section">模型运行与调用限制</text>
+  <path d="M230 915 V1015" class="line-soft" marker-end="url(#arrowBlue)"/>
+  <rect x="120" y="1015" width="330" height="110" rx="17" class="node purple"/>
+  <text x="285" y="1055" text-anchor="middle" class="node-text">Inference</text>
+  <text x="165" y="1095" class="small">使用训练好的模型，根据输入现场生成回答</text>
+
+  <path d="M575 915 V1015" class="line-soft" marker-end="url(#arrowOrange)"/>
+  <rect x="500" y="1015" width="455" height="110" rx="17" class="node orange"/>
+  <text x="727" y="1055" text-anchor="middle" class="node-text">调用限制</text>
+  <text x="545" y="1095" class="small">API Key：身份凭证　Quota：额度　Rate Limit：请求频率限制</text>
+
+  <text x="1035" y="982" class="section">应用可以额外接入的能力</text>
+  <path d="M925 915 C1035 960, 1110 1000, 1180 1065" class="line-soft" marker-end="url(#arrowGreen)"/>
+  <rect x="1035" y="1015" width="260" height="110" rx="17" class="node green"/>
+  <text x="1165" y="1055" text-anchor="middle" class="node-text">RAG</text>
+  <text x="1165" y="1088" text-anchor="middle" class="node-sub">先检索资料</text>
+  <text x="1165" y="1115" text-anchor="middle" class="node-sub">再交给模型回答</text>
+
+  <path d="M1295 1070 H1410" class="line-soft" marker-end="url(#arrowGreen)"/>
+  <rect x="1410" y="1015" width="250" height="110" rx="17" class="node green"/>
+  <text x="1535" y="1055" text-anchor="middle" class="node-text">Agent</text>
+  <text x="1535" y="1088" text-anchor="middle" class="node-sub">调用工具</text>
+  <text x="1535" y="1115" text-anchor="middle" class="node-sub">执行步骤并连续行动</text>
+
+  <rect x="1705" y="1015" width="305" height="110" rx="17" class="node green"/>
+  <text x="1857" y="1055" text-anchor="middle" class="node-text">Workflow</text>
+  <text x="1857" y="1088" text-anchor="middle" class="node-sub">固定步骤</text>
+  <text x="1857" y="1115" text-anchor="middle" class="node-sub">稳定完成一类任务</text>
+
+  <rect x="120" y="1140" width="840" height="42" rx="21" class="orange-fill"/>
+  <text x="150" y="1168" class="small">不能用：常见卡在额度、限速、排队、文件过大或服务繁忙</text>
+
+  <rect x="1035" y="1140" width="975" height="42" rx="21" class="red-fill"/>
+  <text x="1065" y="1168" class="small">隐私：敏感信息进入 Prompt、上传文件或第三方应用前，应先脱敏</text>
+
+  <!-- 3. One request -->
+  <rect x="70" y="1215" width="2060" height="365" rx="24" class="panel"/>
+  <text x="120" y="1268" class="panel-title">3. 一次请求里，术语和问题挂在这些位置</text>
+  <text x="120" y="1306" class="note">你给任务和资料，模型在上下文窗口内处理，再输出答案；重要答案要验证，不能只看语气是否自信。</text>
+
+  <text x="120" y="1360" class="section">请求流</text>
+  <rect x="120" y="1390" width="220" height="92" rx="17" class="node blue"/>
+  <text x="230" y="1428" text-anchor="middle" class="node-text">Prompt</text>
+  <text x="230" y="1460" text-anchor="middle" class="node-sub">你给的任务指令</text>
+
+  <path d="M340 1436 H505" class="line" marker-end="url(#arrow)"/>
+  <rect x="505" y="1390" width="240" height="92" rx="17" class="node blue"/>
+  <text x="625" y="1428" text-anchor="middle" class="node-text">Context</text>
+  <text x="625" y="1460" text-anchor="middle" class="node-sub">模型当前能看到的资料</text>
+
+  <path d="M745 1436 H910" class="line" marker-end="url(#arrow)"/>
+  <rect x="910" y="1390" width="240" height="92" rx="17" class="node purple"/>
+  <text x="1030" y="1428" text-anchor="middle" class="node-text">Model</text>
+  <text x="1030" y="1460" text-anchor="middle" class="node-sub">按 token 处理输入输出</text>
+
+  <path d="M1150 1436 H1315" class="line" marker-end="url(#arrow)"/>
+  <rect x="1315" y="1390" width="220" height="92" rx="17" class="node green"/>
+  <text x="1425" y="1428" text-anchor="middle" class="node-text">Answer</text>
+  <text x="1425" y="1460" text-anchor="middle" class="node-sub">需要验证的结果</text>
+
+  <text x="1605" y="1360" class="section">输出后的风险与验证</text>
+  <rect x="1605" y="1390" width="230" height="92" rx="17" class="red-fill"/>
+  <text x="1720" y="1426" text-anchor="middle" class="small">Hallucination</text>
+  <text x="1720" y="1458" text-anchor="middle" class="tiny">可能看似合理但错误</text>
+
+  <path d="M1835 1436 H1905" class="line-soft" marker-end="url(#arrowGreen)"/>
+  <rect x="1905" y="1390" width="205" height="92" rx="17" class="green-fill"/>
+  <text x="2007" y="1426" text-anchor="middle" class="small">Verification</text>
+  <text x="2007" y="1458" text-anchor="middle" class="tiny">查来源 / 跑测试 / 回看原文</text>
+
+  <text x="120" y="1525" class="section">影响这次请求的关键术语</text>
+  <rect x="385" y="1500" width="300" height="58" rx="17" class="blue-fill"/>
+  <text x="415" y="1525" class="small">Context Window</text>
+  <text x="415" y="1551" class="tiny">一次请求最多能放多少资料</text>
+
+  <rect x="720" y="1500" width="250" height="58" rx="17" class="blue-fill"/>
+  <text x="750" y="1525" class="small">Token</text>
+  <text x="750" y="1551" class="tiny">输入和输出的计量单位</text>
+
+  <rect x="1005" y="1500" width="285" height="58" rx="17" class="purple-fill"/>
+  <text x="1035" y="1525" class="small">Temperature</text>
+  <text x="1035" y="1551" class="tiny">影响回答稳定或发散</text>
+
+  <rect x="1325" y="1500" width="250" height="58" rx="17" class="blue-fill"/>
+  <text x="1355" y="1525" class="small">Memory</text>
+  <text x="1355" y="1551" class="tiny">产品保存的长期偏好</text>
 </svg>

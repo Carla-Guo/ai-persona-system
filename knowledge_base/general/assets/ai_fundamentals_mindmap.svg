@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1650" viewBox="0 0 2200 1650" role="img" aria-labelledby="title desc">
-  <title id="title">AI 基础知识关系图</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="2050" height="2555" viewBox="0 -60 2050 2555" role="img" aria-labelledby="title desc">
+  <title id="title">AI 基础概念地图</title>
   <desc id="desc">用连接关系说明 AI、机器学习、深度学习、大语言模型、模型、API、应用程序、产品入口、一次请求流程以及常见问题之间的关系。</desc>
   <defs>
     <style>
@@ -14,6 +14,8 @@
       .node-sub { font: 500 18px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #5b6472; }
       .small { font: 600 19px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #394150; }
       .tiny { font: 500 17px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #667085; }
+      .card-title { font: 700 22px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #1f2a37; }
+      .card-note { font: 500 19px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #667085; }
       .line { fill: none; stroke: #9aa6b2; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
       .line-soft { fill: none; stroke: #b7c0ce; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 8 8; }
       .pill { fill: #eef2f7; stroke: #d9dee8; stroke-width: 1.6; }
@@ -42,177 +44,155 @@
     </marker>
   </defs>
 
-  <rect class="bg" width="2200" height="1650"/>
-  <text x="1100" y="72" text-anchor="middle" class="title">AI 基础知识关系图</text>
-  <text x="1100" y="112" text-anchor="middle" class="note">读法：先看 AI 能力谱系，再看模型如何通过 API 变成应用，最后看一次请求里各术语所在的位置。</text>
+  <rect class="bg" x="0" y="-60" width="2050" height="2555"/>
+  <text x="1100" y="72" text-anchor="middle" class="title">AI 基础概念地图</text>
 
-  <!-- 1. AI family tree -->
-  <rect x="70" y="155" width="2060" height="430" rx="24" class="panel"/>
-  <text x="120" y="208" class="panel-title">1. AI 是大伞：不同能力分支从这里长出来</text>
-  <text x="120" y="246" class="note">ML、DL、LLM 是层层包含关系；CV、语音、机器人是 AI 的其他重要能力方向。</text>
+  <!-- 1. AI capability map -->
+  <rect x="70" y="155" width="1910" height="940" rx="24" class="panel"/>
+  <text x="120" y="208" class="panel-title">1. AI 能力地图：技术方法、模型方向、应用领域分开看</text>
+  <text x="120" y="246" class="note">读法：技术方法提供底层手段，模型方向形成可复用能力，应用领域用这些能力解决真实问题并反推迭代。</text>
 
-  <rect x="120" y="310" width="190" height="90" rx="15" class="node blue"/>
-  <text x="215" y="348" text-anchor="middle" class="node-text">AI</text>
-  <text x="215" y="380" text-anchor="middle" class="node-sub">人工智能总称</text>
+  <rect x="120" y="620" width="190" height="90" rx="15" class="node blue"/>
+  <text x="215" y="658" text-anchor="middle" class="node-text">AI</text>
+  <text x="215" y="690" text-anchor="middle" class="node-sub">人工智能总称</text>
 
-  <path d="M310 355 H430" class="line" marker-end="url(#arrow)"/>
-  <rect x="430" y="310" width="270" height="90" rx="15" class="node blue"/>
-  <text x="565" y="348" text-anchor="middle" class="node-text">Machine Learning</text>
-  <text x="565" y="380" text-anchor="middle" class="node-sub">机器学习：从数据学规律</text>
+  <path d="M310 665 C395 665, 405 395, 500 395" class="line-soft" marker-end="url(#arrowBlue)"/>
+  <path d="M310 665 H500" class="line" marker-end="url(#arrow)"/>
+  <path d="M310 665 C395 665, 405 935, 500 935" class="line-soft" marker-end="url(#arrowGreen)"/>
 
-  <path d="M700 355 H820" class="line" marker-end="url(#arrow)"/>
-  <rect x="820" y="310" width="250" height="90" rx="15" class="node blue"/>
-  <text x="945" y="348" text-anchor="middle" class="node-text">Deep Learning</text>
-  <text x="945" y="380" text-anchor="middle" class="node-sub">深度学习：多层神经网络</text>
+  <rect x="500" y="285" width="980" height="220" rx="18" class="node blue"/>
+  <text x="545" y="326" class="node-text">技术方法</text>
+  <text x="545" y="370" class="small">Machine Learning：让模型从数据中学习规律</text>
+  <text x="545" y="407" class="small">Deep Learning：机器学习中的神经网络方法</text>
+  <text x="545" y="444" class="small">Foundation Models（大模型）：通常基于深度学习训练的大规模通用模型</text>
+  <text x="545" y="481" class="tiny">注：这是常见路径，不代表所有机器学习都会走向大模型</text>
 
-  <path d="M1070 355 H1190" class="line" marker-end="url(#arrow)"/>
-  <rect x="1190" y="310" width="190" height="90" rx="15" class="node blue"/>
-  <text x="1285" y="348" text-anchor="middle" class="node-text">LLM</text>
-  <text x="1285" y="380" text-anchor="middle" class="node-sub">大语言模型</text>
+  <path d="M990 505 V555" class="line" marker-end="url(#arrow)"/>
+  <text x="1028" y="535" class="tiny">支撑</text>
 
-  <path d="M215 400 V480 H430" class="line" marker-end="url(#arrowGreen)"/>
-  <path d="M215 480 H670" class="line" marker-end="url(#arrowGreen)"/>
-  <path d="M215 480 H910" class="line" marker-end="url(#arrowGreen)"/>
+  <rect x="500" y="555" width="980" height="220" rx="18" class="node purple"/>
+  <text x="545" y="596" class="node-text">模型方向</text>
+  <text x="545" y="640" class="small">LLM：以语言理解与生成为核心的大模型方向</text>
+  <text x="545" y="677" class="small">多模态模型：同时处理文字、图像、音频等信息</text>
+  <text x="545" y="714" class="small">视觉与语音生成模型：面向图像、视频、语音等内容生成</text>
+  <text x="545" y="751" class="tiny">注：这是模型能力方向，不是产品名称；LLM 也不是所有 AI 的终点</text>
 
-  <rect x="430" y="445" width="170" height="70" rx="14" class="node green"/>
-  <text x="515" y="475" text-anchor="middle" class="node-text">CV</text>
-  <text x="515" y="500" text-anchor="middle" class="node-sub">图像 / 视频理解</text>
+  <path d="M990 775 V825" class="line" marker-end="url(#arrow)"/>
+  <text x="1028" y="805" class="tiny">赋能</text>
 
-  <rect x="670" y="445" width="180" height="70" rx="14" class="node green"/>
-  <text x="760" y="475" text-anchor="middle" class="node-text">Speech</text>
-  <text x="760" y="500" text-anchor="middle" class="node-sub">语音识别 / 合成</text>
+  <rect x="500" y="825" width="980" height="220" rx="18" class="node green"/>
+  <text x="545" y="866" class="node-text">应用领域</text>
+  <text x="545" y="910" class="small">CV：图像 / 视频理解与处理</text>
+  <text x="545" y="947" class="small">Speech：语音识别、合成与理解</text>
+  <text x="545" y="984" class="small">Robotics：感知、规划、控制与执行</text>
+  <text x="545" y="1021" class="tiny">注：应用领域会组合多种模型能力，不是单一算法分支</text>
 
-  <rect x="910" y="445" width="205" height="70" rx="14" class="node green"/>
-  <text x="1012" y="475" text-anchor="middle" class="node-text">Robotics</text>
-  <text x="1012" y="500" text-anchor="middle" class="node-sub">感知 + 决策 + 执行</text>
+  <path d="M1480 935 C1705 935, 1705 395, 1480 395" class="line-soft" marker-end="url(#arrowBlue)"/>
+  <path d="M1480 935 C1605 935, 1605 665, 1480 665" class="line-soft" marker-end="url(#arrowGreen)"/>
+  <text x="1575" y="620" class="small">应用需求和真实数据</text>
+  <text x="1575" y="648" class="small">会反过来推动模型方向</text>
+  <text x="1575" y="676" class="small">与技术方法继续迭代</text>
 
-  <path d="M1380 355 H1505" class="line" marker-end="url(#arrowBlue)"/>
-  <rect x="1505" y="285" width="360" height="155" rx="17" class="node blue"/>
-  <text x="1685" y="326" text-anchor="middle" class="node-text">常见 LLM / 产品线</text>
-  <text x="1545" y="370" class="small">ChatGPT / GPT、Claude、Gemini</text>
-  <text x="1545" y="405" class="small">Qwen、DeepSeek 等</text>
-
-  <rect x="1425" y="470" width="565" height="58" rx="17" class="pill"/>
-  <text x="1455" y="494" class="small">Training：训练阶段，模型从大量数据里学规律</text>
-  <text x="1455" y="520" class="small">Fine-tuning：在已有模型上继续训练，让它更适合某类任务</text>
-
+  <g transform="translate(0 510)">
   <!-- 2. Model to app chain -->
-  <rect x="70" y="630" width="2060" height="540" rx="24" class="panel"/>
-  <text x="120" y="683" class="panel-title">2. 从模型到你看到的工具：中间隔着 API 和应用程序</text>
-  <text x="120" y="721" class="note">模型本身不是应用。应用通过 API 调用模型，再把结果包装成聊天、编辑器、知识库或本地工具。</text>
+  <rect x="70" y="630" width="1910" height="745" rx="24" class="panel"/>
+  <text x="120" y="683" class="panel-title">2. 模型能力如何被应用调用</text>
+  <text x="120" y="721" class="note">重点：模型、产品、第三方应用不是同一层；API 很常见，但不是唯一调用方式。</text>
 
-  <text x="120" y="780" class="section">主链路</text>
-  <rect x="120" y="815" width="220" height="100" rx="17" class="node purple"/>
-  <text x="230" y="856" text-anchor="middle" class="node-text">模型</text>
-  <text x="230" y="888" text-anchor="middle" class="node-sub">GPT / Claude / Gemini</text>
+  <text x="120" y="780" class="section">三层主链路</text>
+  <rect x="120" y="815" width="500" height="155" rx="17" class="node purple"/>
+  <text x="370" y="856" text-anchor="middle" class="node-text">模型层</text>
+  <text x="180" y="895" class="small">GPT-5.5 / Claude Opus / Gemini 2.5</text>
+  <text x="180" y="927" class="small">Llama 4 / DeepSeek-R1 等</text>
 
-  <path d="M340 865 H475" class="line" marker-end="url(#arrow)"/>
-  <rect x="475" y="815" width="200" height="100" rx="17" class="node orange"/>
-  <text x="575" y="856" text-anchor="middle" class="node-text">API</text>
-  <text x="575" y="888" text-anchor="middle" class="node-sub">程序调用入口</text>
+  <path d="M620 892 H690" class="line" marker-end="url(#arrow)"/>
+  <rect x="690" y="815" width="500" height="170" rx="17" class="node orange"/>
+  <text x="940" y="856" text-anchor="middle" class="node-text">调用与运行方式</text>
+  <text x="750" y="895" class="small">云端 API：服务商托管，程序远程调用</text>
+  <text x="750" y="927" class="small">本地运行：Ollama / LM Studio</text>
+  <text x="750" y="959" class="small">SDK / Python：在程序里直接接入</text>
 
-  <path d="M675 865 H810" class="line" marker-end="url(#arrow)"/>
-  <rect x="810" y="815" width="230" height="100" rx="17" class="node green"/>
-  <text x="925" y="856" text-anchor="middle" class="node-text">应用程序</text>
-  <text x="925" y="888" text-anchor="middle" class="node-sub">业务逻辑 + 界面</text>
+  <path d="M1190 892 H1260" class="line" marker-end="url(#arrow)"/>
+  <rect x="1260" y="790" width="610" height="195" rx="17" class="node blue"/>
+  <text x="1565" y="830" text-anchor="middle" class="node-text">产品与应用层</text>
+  <text x="1320" y="872" class="small">官方产品：ChatGPT / Claude App / Gemini App</text>
+  <text x="1320" y="909" class="small">第三方应用：Cursor / Open WebUI / OpenClaw</text>
+  <text x="1320" y="946" class="tiny">注：ChatGPT 是产品，不是模型；Cursor 是应用，不是模型</text>
 
-  <path d="M1040 865 H1165" class="line" marker-end="url(#arrow)"/>
-  <rect x="1165" y="790" width="220" height="150" rx="17" class="node blue"/>
-  <text x="1275" y="830" text-anchor="middle" class="node-text">你看到的产品</text>
-  <text x="1215" y="872" class="tiny">ChatGPT</text>
-  <text x="1215" y="904" class="tiny">Cursor</text>
-  <text x="1215" y="936" class="tiny">Cherry Studio</text>
+  <rect x="120" y="1013" width="1800" height="250" rx="22" style="fill: none; stroke: #b7c0ce; stroke-width: 2.8; stroke-dasharray: 10 8;"/>
+  <text x="160" y="1052" class="section">系统编排与扩展能力</text>
+  <rect x="160" y="1080" width="360" height="110" rx="15" class="green-fill"/>
+  <text x="220" y="1116" class="card-title">Workflow：预定义流程</text>
+  <text x="220" y="1156" class="card-note">可包含条件、循环、重试</text>
 
-  <path d="M1385 865 H1510" class="line" marker-end="url(#arrowBlue)"/>
-  <rect x="1510" y="790" width="500" height="150" rx="17" class="node blue"/>
-  <text x="1760" y="830" text-anchor="middle" class="node-text">更多应用形态</text>
-  <text x="1560" y="875" class="small">Open WebUI：本地或自部署聊天界面</text>
-  <text x="1560" y="912" class="small">Claude Desktop：桌面端产品入口</text>
+  <rect x="590" y="1080" width="650" height="110" rx="15" class="green-fill"/>
+  <text x="650" y="1116" class="card-title">Agent：规划 + 工具调用 + 记忆 + 反思 + 执行</text>
+  <text x="650" y="1156" class="card-note">不是高级脚本，而是能根据结果继续决策的系统</text>
 
-  <text x="120" y="982" class="section">模型运行与调用限制</text>
-  <path d="M230 915 V1015" class="line-soft" marker-end="url(#arrowBlue)"/>
-  <rect x="120" y="1015" width="330" height="110" rx="17" class="node purple"/>
-  <text x="285" y="1055" text-anchor="middle" class="node-text">Inference</text>
-  <text x="165" y="1095" class="small">使用训练好的模型，根据输入现场生成回答</text>
+  <rect x="1310" y="1080" width="560" height="110" rx="15" class="green-fill"/>
+  <text x="1370" y="1116" class="card-title">RAG：检索资料 + 拼上下文 + 调用模型</text>
+  <text x="1370" y="1156" class="card-note">用于减少幻觉，补充私有或最新资料</text>
 
-  <path d="M575 915 V1015" class="line-soft" marker-end="url(#arrowOrange)"/>
-  <rect x="500" y="1015" width="455" height="110" rx="17" class="node orange"/>
-  <text x="727" y="1055" text-anchor="middle" class="node-text">调用限制</text>
-  <text x="545" y="1095" class="small">API Key：身份凭证　Quota：额度　Rate Limit：请求频率限制</text>
+  <text x="160" y="1232" class="small">一句话：Workflow 是骨架，可以指挥 Agent 干活，也可以调用 RAG 查资料。</text>
 
-  <text x="1035" y="982" class="section">应用可以额外接入的能力</text>
-  <path d="M925 915 C1035 960, 1110 1000, 1180 1065" class="line-soft" marker-end="url(#arrowGreen)"/>
-  <rect x="1035" y="1015" width="260" height="110" rx="17" class="node green"/>
-  <text x="1165" y="1055" text-anchor="middle" class="node-text">RAG</text>
-  <text x="1165" y="1088" text-anchor="middle" class="node-sub">先检索资料</text>
-  <text x="1165" y="1115" text-anchor="middle" class="node-sub">再交给模型回答</text>
+  <rect x="120" y="1298" width="780" height="42" rx="21" class="orange-fill"/>
+  <text x="150" y="1326" class="small">不能用：常见卡在额度、限速、排队、文件过大或服务繁忙</text>
 
-  <path d="M1295 1070 H1410" class="line-soft" marker-end="url(#arrowGreen)"/>
-  <rect x="1410" y="1015" width="250" height="110" rx="17" class="node green"/>
-  <text x="1535" y="1055" text-anchor="middle" class="node-text">Agent</text>
-  <text x="1535" y="1088" text-anchor="middle" class="node-sub">调用工具</text>
-  <text x="1535" y="1115" text-anchor="middle" class="node-sub">执行步骤并连续行动</text>
-
-  <rect x="1705" y="1015" width="305" height="110" rx="17" class="node green"/>
-  <text x="1857" y="1055" text-anchor="middle" class="node-text">Workflow</text>
-  <text x="1857" y="1088" text-anchor="middle" class="node-sub">固定步骤</text>
-  <text x="1857" y="1115" text-anchor="middle" class="node-sub">稳定完成一类任务</text>
-
-  <rect x="120" y="1140" width="840" height="42" rx="21" class="orange-fill"/>
-  <text x="150" y="1168" class="small">不能用：常见卡在额度、限速、排队、文件过大或服务繁忙</text>
-
-  <rect x="1035" y="1140" width="975" height="42" rx="21" class="red-fill"/>
-  <text x="1065" y="1168" class="small">隐私：敏感信息进入 Prompt、上传文件或第三方应用前，应先脱敏</text>
+  <rect x="980" y="1298" width="940" height="42" rx="21" class="red-fill"/>
+  <text x="1010" y="1326" class="small">隐私：敏感信息进入 Prompt、上传文件或第三方应用前，应先脱敏</text>
 
   <!-- 3. One request -->
-  <rect x="70" y="1215" width="2060" height="365" rx="24" class="panel"/>
-  <text x="120" y="1268" class="panel-title">3. 一次请求里，术语和问题挂在这些位置</text>
-  <text x="120" y="1306" class="note">你给任务和资料，模型在上下文窗口内处理，再输出答案；重要答案要验证，不能只看语气是否自信。</text>
+  <g transform="translate(0 145)">
+  <rect x="70" y="1275" width="1910" height="495" rx="24" class="panel"/>
+  <text x="120" y="1328" class="panel-title">3. 一次请求里发生什么</text>
+  <text x="120" y="1366" class="note">你给任务和资料，模型在上下文窗口内处理，再输出答案；重要答案要验证，不能只看语气是否自信。</text>
 
-  <text x="120" y="1360" class="section">请求流</text>
-  <rect x="120" y="1390" width="220" height="92" rx="17" class="node blue"/>
-  <text x="230" y="1428" text-anchor="middle" class="node-text">Prompt</text>
-  <text x="230" y="1460" text-anchor="middle" class="node-sub">你给的任务指令</text>
+  <text x="120" y="1420" class="section">请求流</text>
+  <rect x="120" y="1450" width="220" height="92" rx="17" class="node blue"/>
+  <text x="230" y="1488" text-anchor="middle" class="node-text">Prompt</text>
+  <text x="230" y="1520" text-anchor="middle" class="node-sub">你给的任务指令</text>
 
-  <path d="M340 1436 H505" class="line" marker-end="url(#arrow)"/>
-  <rect x="505" y="1390" width="240" height="92" rx="17" class="node blue"/>
-  <text x="625" y="1428" text-anchor="middle" class="node-text">Context</text>
-  <text x="625" y="1460" text-anchor="middle" class="node-sub">模型当前能看到的资料</text>
+  <path d="M340 1496 H410" class="line" marker-end="url(#arrow)"/>
+  <rect x="410" y="1450" width="240" height="92" rx="17" class="node blue"/>
+  <text x="530" y="1488" text-anchor="middle" class="node-text">Context</text>
+  <text x="530" y="1520" text-anchor="middle" class="node-sub">当前请求中可见的信息</text>
 
-  <path d="M745 1436 H910" class="line" marker-end="url(#arrow)"/>
-  <rect x="910" y="1390" width="240" height="92" rx="17" class="node purple"/>
-  <text x="1030" y="1428" text-anchor="middle" class="node-text">Model</text>
-  <text x="1030" y="1460" text-anchor="middle" class="node-sub">按 token 处理输入输出</text>
+  <path d="M650 1496 H720" class="line" marker-end="url(#arrow)"/>
+  <rect x="720" y="1450" width="240" height="92" rx="17" class="node purple"/>
+  <text x="840" y="1488" text-anchor="middle" class="node-text">Model</text>
+  <text x="840" y="1520" text-anchor="middle" class="node-sub">根据输入生成结果</text>
 
-  <path d="M1150 1436 H1315" class="line" marker-end="url(#arrow)"/>
-  <rect x="1315" y="1390" width="220" height="92" rx="17" class="node green"/>
-  <text x="1425" y="1428" text-anchor="middle" class="node-text">Answer</text>
-  <text x="1425" y="1460" text-anchor="middle" class="node-sub">需要验证的结果</text>
+  <path d="M960 1496 H1030" class="line" marker-end="url(#arrow)"/>
+  <rect x="1030" y="1450" width="220" height="92" rx="17" class="node green"/>
+  <text x="1140" y="1488" text-anchor="middle" class="node-text">Answer</text>
+  <text x="1140" y="1520" text-anchor="middle" class="node-sub">文本 / 代码 / 图片等输出</text>
 
-  <text x="1605" y="1360" class="section">输出后的风险与验证</text>
-  <rect x="1605" y="1390" width="230" height="92" rx="17" class="red-fill"/>
-  <text x="1720" y="1426" text-anchor="middle" class="small">Hallucination</text>
-  <text x="1720" y="1458" text-anchor="middle" class="tiny">可能看似合理但错误</text>
+  <text x="1350" y="1420" class="section">输出后的风险与验证</text>
+  <rect x="1350" y="1450" width="230" height="92" rx="17" class="red-fill"/>
+  <text x="1465" y="1486" text-anchor="middle" class="small">Hallucination</text>
+  <text x="1465" y="1518" text-anchor="middle" class="tiny">可能看似合理但错误</text>
 
-  <path d="M1835 1436 H1905" class="line-soft" marker-end="url(#arrowGreen)"/>
-  <rect x="1905" y="1390" width="205" height="92" rx="17" class="green-fill"/>
-  <text x="2007" y="1426" text-anchor="middle" class="small">Verification</text>
-  <text x="2007" y="1458" text-anchor="middle" class="tiny">查来源 / 跑测试 / 回看原文</text>
+  <path d="M1580 1496 H1650" class="line-soft" marker-end="url(#arrowGreen)"/>
+  <rect x="1650" y="1450" width="235" height="92" rx="17" class="green-fill"/>
+  <text x="1767" y="1486" text-anchor="middle" class="small">Verification</text>
+  <text x="1767" y="1518" text-anchor="middle" class="tiny">查来源 / 跑测试 / 回看原文</text>
 
-  <text x="120" y="1525" class="section">影响这次请求的关键术语</text>
-  <rect x="385" y="1500" width="300" height="58" rx="17" class="blue-fill"/>
-  <text x="415" y="1525" class="small">Context Window</text>
-  <text x="415" y="1551" class="tiny">一次请求最多能放多少资料</text>
+  <text x="120" y="1600" class="section">影响这次请求的关键术语</text>
+  <rect x="120" y="1620" width="430" height="110" rx="17" class="blue-fill"/>
+  <text x="150" y="1658" class="node-text">Context Window</text>
+  <text x="150" y="1702" class="node-sub">一次请求中模型最多能看到多少信息</text>
 
-  <rect x="720" y="1500" width="250" height="58" rx="17" class="blue-fill"/>
-  <text x="750" y="1525" class="small">Token</text>
-  <text x="750" y="1551" class="tiny">输入和输出的计量单位</text>
+  <rect x="580" y="1620" width="340" height="110" rx="17" class="blue-fill"/>
+  <text x="610" y="1658" class="node-text">Token</text>
+  <text x="610" y="1702" class="node-sub">模型分词后的基本计算单位</text>
 
-  <rect x="1005" y="1500" width="285" height="58" rx="17" class="purple-fill"/>
-  <text x="1035" y="1525" class="small">Temperature</text>
-  <text x="1035" y="1551" class="tiny">影响回答稳定或发散</text>
+  <rect x="950" y="1620" width="390" height="110" rx="17" class="purple-fill"/>
+  <text x="980" y="1658" class="node-text">Temperature</text>
+  <text x="980" y="1702" class="node-sub">控制回答的随机性与创造性</text>
 
-  <rect x="1325" y="1500" width="250" height="58" rx="17" class="blue-fill"/>
-  <text x="1355" y="1525" class="small">Memory</text>
-  <text x="1355" y="1551" class="tiny">产品保存的长期偏好</text>
+  <rect x="1370" y="1620" width="530" height="110" rx="17" class="blue-fill"/>
+  <text x="1400" y="1658" class="node-text">Memory</text>
+  <text x="1400" y="1702" class="node-sub">产品 / 系统保存的信息，不是模型天然记住</text>
+  </g>
+  </g>
 </svg>
